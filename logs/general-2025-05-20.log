@@ -1,0 +1,15 @@
+/db1/mariadb/bin/mysqld, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/mariadb/mysql.sock
+Time		    Id Command	Argument
+/db1/mariadb/bin/mysqld, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/mariadb/mysql.sock
+Time		    Id Command	Argument
+/db1/myserver/mariadb/bin/mysqld, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250520  1:54:19	     3 Connect	root@localhost on  using Socket
+		     3 Query	select @@version_comment limit 1
+250520  1:54:22	     3 Quit	
+/db1/myserver/mariadb/bin/mysqld, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
