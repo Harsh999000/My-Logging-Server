@@ -1,0 +1,10 @@
+# Rotate error.log at midnight
+0 0 * * * mv /db1/myserver/mariadb/logs/error.log /db1/myserver/mariadb/logs/error-$(date -d "yesterday" +\%F).log
+
+# Keep only the latest 7 logs of each type
+0 1 * * * find /db1/myserver/mariadb/logs -type f -name 'mariadb-*.log' -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2- | tail -n +8 | xargs -r rm --
+0 1 * * * find /db1/myserver/mariadb/logs -type f -name 'general-*.log' -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2- | tail -n +8 | xargs -r rm --
+0 1 * * * find /db1/myserver/mariadb/logs -type f -name 'error-*.log' -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2- | tail -n +8 | xargs -r rm --
+
+# Auto push logs to github
+0 2 * * * /db1/myserver/github/cron/auto-push-logs.sh
