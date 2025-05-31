@@ -1,0 +1,56 @@
+/db1/myserver/mariadb/bin/mariadbd, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250531  2:57:44	     3 Connect	root@localhost on  using Socket
+		     3 Query	select @@version_comment limit 1
+250531  2:57:56	     3 Query	SHOW DATABASES
+		     3 Query	SELECT NOW()
+250531  2:59:40	     3 Query	SELECT NOW()
+250531  2:59:42	     3 Query	SHOW DATABASES
+250531  2:59:43	     3 Query	SELECT NOW()
+250531  2:59:56	     3 Query	SELECT NOW()
+		     3 Query	SELECT NOW()
+250531  3:00:12	     3 Quit	
+/db1/myserver/mariadb/bin/mariadbd, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250531 21:07:31	     4 Connect	root@localhost on  using Socket
+		     4 Query	select @@version_comment limit 1
+250531 21:07:36	     4 Query	show databases
+250531 21:08:13	     4 Query	select user, host from mysql.user
+250531 21:08:59	     4 Query	SELECT * FROM mysql.user WHERE User=''
+250531 21:10:05	     4 Query	delete from mysql.user where user = ""
+250531 21:10:30	     4 Query	flush privilages
+250531 21:10:40	     4 Query	flush privileges
+250531 21:10:54	     4 Query	select * form mysql.user
+250531 21:11:01	     4 Query	select user, host from mysql.user
+250531 21:12:07	     4 Query	delete user from mysql.user where user = 'public'
+250531 21:12:29	     4 Query	delete from mysql.user where user = 'public'
+250531 21:13:11	     4 Query	select * from mysql.user
+250531 21:13:30	     4 Query	select user, host localhost
+250531 21:13:59	     4 Query	select user, host from mysql.user
+250531 21:14:12	     4 Query	DELETE FROM mysql.user WHERE User='PUBLIC'
+		     4 Query	FLUSH PRIVILEGES
+250531 21:14:37	     4 Query	select user, host from mysql.user
+250531 21:16:54	     4 Query	select * from mysql.user
+250531 21:29:48	     4 Quit	
+250531 21:31:59	     5 Connect	root@localhost on  using Socket
+		     5 Query	select @@version_comment limit 1
+250531 22:22:39	     5 Query	select user, host from mysql.user
+250531 22:49:21	     5 Query	create user harsh
+250531 22:49:36	     5 Query	select user from mysql.user
+250531 22:53:18	     5 Query	delete user harsh
+250531 22:53:31	     5 Query	delete user harsh from mysql.user
+250531 22:54:04	     5 Query	drop user 'harsh'@'localhost'
+250531 22:54:08	     5 Query	drop user 'harsh'@'localhost'
+250531 22:54:27	     5 Query	select user, host from mysql.user
+250531 22:54:38	     5 Query	drop user 'harsh'@'%'
+250531 22:57:50	     5 Query	create user 'harsh'@'localhost' identifedby 'Harsh@123'
+250531 22:57:52	     5 Query	create user 'harsh'@'localhost' identifedby 'Harsh@123'
+250531 22:58:06	     5 Query	create user 'harsh'@'localhost' identifed by 'Harsh@123'
+250531 22:58:18	     5 Query	create user 'harsh'@'localhost' identified by 'Harsh@123'
+250531 22:58:36	     5 Query	select user from mysql.user
+250531 22:58:46	     5 Query	select user, host from mysql.user
+250531 23:11:15	     5 Query	show grants for 'harsh'@'localhost'
+250531 23:14:08	     5 Query	grant all privileges on *.* to 'harsh'@'localhost' with grant option
+250531 23:14:22	     5 Query	flush privileges
