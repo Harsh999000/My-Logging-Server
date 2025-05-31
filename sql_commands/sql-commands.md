@@ -22,7 +22,7 @@ Explanation:
  
 Check User
 
-- select user from mysql.user - This will show the list of all the users
+- select user from mysql.user; - This will show the list of all the users
 
 Explanation:
 
@@ -49,7 +49,7 @@ Explanation:
 - 'user_name' is the username for the user 
 - There is no password for user and the host will be the user creating this, if you are root it will be %
 
-- Method 2: create user 'user_name'@'host' identified by 'password@123'
+- Method 2: create user 'user_name'@'host' identified by 'password@123';
 
 Explanation:
 
@@ -60,16 +60,37 @@ Explanation:
 
 Grant Privileges to User
 
-- Grant all privileges: grant all privileges on *.* to 'username'@'host' with grant option;
+- Grant all privileges: grant all privileges on `*.*` to 'username'@'host' with grant option;
 
 Explanation:
 
 - 'grant' is used to give permission to user
 - 'all privileges' to give every privilege like select, insert, update, delete, create etc.
 - 'on' specifies on what do we want to apply these privileges like database or tables
-- *.* means all databases first and then all tables
+- `*.*` means all databases first and then all tables
 - 'username'@'host' specify the username to whom we are granting access, and host means where they can connect from
 - 'with grant option' allows the user to pass on their privileges to other users
 - Instead of 'all' you can specify what privileges you want to give like select, create, delete, update etc.
 - We can not specify what privileges user can pass on by default 'with grant option' gives access to pass on all the privileges the user has
+
+-----------------------------------------------------------------------------------
+
+Delete User
+
+- Method 1: drop USER 'username'@'host';
+
+Explanation:
+
+- drop means delete
+- user means we want to delete user
+- 'username' is the username of the user we want to delete
+- @'host' means this user connects from host
+- This basically translates to delete the user which has username as 'username' and connects from host
+- This can produce an error if the user does not exist
+
+Method 2: drop user if exists 'username'@'host';
+
+- This delete the user if the user exists
+
+------------------------------------------------------------------------------------
 
