@@ -1,10 +1,20 @@
-# Rotate error.log at midnight
-0 0 * * * mv /db1/myserver/mariadb/logs/error.log /db1/myserver/mariadb/logs/error-$(date -d "yesterday" +\%F).log
+# Rotate error.log at 12:01 AM
+1 0 * * * mv /db1/myserver/mariadb/logs/error.log /db1/myserver/mariadb/logs/error-$(d>
 
-# Keep only the latest 7 logs of each type
-0 1 * * * find /db1/myserver/mariadb/logs -type f -name 'mariadb-*.log' -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2- | tail -n +8 | xargs -r rm --
-0 1 * * * find /db1/myserver/mariadb/logs -type f -name 'general-*.log' -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2- | tail -n +8 | xargs -r rm --
-0 1 * * * find /db1/myserver/mariadb/logs -type f -name 'error-*.log' -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2- | tail -n +8 | xargs -r rm --
+# Rotate general.log at 12:01 AM
+1 0 * * * mv /db1/myserver/mariadb/logs/general.log /db1/myserver/mariadb/logs/general>
 
-# Auto push logs to github
-0 2 * * * /db1/myserver/github/cron/auto-push-logs.sh
+# Create empty logs after rotation at 12:02 AM
+2 0 * * * touch /db1/myserver/mariadb/logs/general.log /db1/myserver/mariadb/logs/erro>
+
+# Keep only last 7 days of logs in MariaDB logs folder at 12:03 AM
+3 0 * * * find /db1/myserver/mariadb/logs -type f -name 'startup-*.log' -mtime +7 -del>3 0 * * * find /db1/myserver/mariadb/logs -type f -name 'general-*.log' -mtime +7 -del>3 0 * * * find /db1/myserver/mariadb/logs -type f -name 'error-*.log' -mtime +7 -delete
+
+# Move rotated logs to github/logs folder at 12:04 AM
+4 0 * * * cp /db1/myserver/mariadb/logs/*-$(date -d "yesterday" +\%F).log /db1/myserve>
+
+# Push logs to github at 12:05 AM
+5 0 * * * cd /db1/myserver/github && git add --ignore-removal logs/ && git commit -m ">
+
+# Delete all logs in github/logs folder after push at 12:10 AM
+10 0 * * * rm -f /db1/myserver/github/logs/*.log
