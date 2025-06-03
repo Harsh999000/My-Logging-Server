@@ -1,0 +1,192 @@
+/db1/myserver/mariadb/bin/mariadbd, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250603  0:50:03	     9 Query	FLUSH LOGS
+/db1/myserver/mariadb/bin/mariadbd, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250603  0:50:05	     9 Query	SELECT NOW()
+250603  0:52:07	     9 Query	delete database 'admin_test'
+250603  0:52:21	     9 Query	delete database admin_test
+250603  0:52:50	     9 Query	drop database admin_test
+		     9 Query	SELECT DATABASE()
+250603  0:52:56	     9 Query	show databases
+250603  0:53:07	     9 Query	create database admin_test
+250603  0:53:11	     9 Query	show databases
+250603  0:56:11	     9 Query	create user 'harsh'@'localhost' identified by 'Harsh0@server'
+250603  0:56:40	     9 Query	select user, host from mysql.user
+250603  0:57:51	     9 Query	grant all privileges on *.* to 'harsh'@'localhost' with grant option
+250603  0:58:24	     9 Query	create database user_details
+250603  1:21:27	     9 Query	show databases
+250603  1:25:10	     9 Query	drop database user_details
+		     9 Query	SELECT DATABASE()
+250603  1:25:23	     9 Query	drop database admin_test
+		     9 Query	SELECT DATABASE()
+250603  1:27:31	     9 Query	show databases
+250603  1:27:46	     9 Query	select user, host from mysql.user
+250603  1:31:58	     9 Query	create database mydbmanager_admin
+250603  1:35:25	     9 Query	show grants for 'harsh'@'localhost'
+250603  1:44:37	     9 Query	show databases
+250603  1:46:00	     9 Query	user mydbmanager_admin
+250603  1:46:11	     9 Query	SELECT DATABASE()
+		     9 Init DB	mydbmanager_admin
+		     9 Query	show databases
+		     9 Query	show tables
+250603  1:50:47	     9 Query	create table user_details (
+id int auto_increment primary key,
+username varchar(20) unique not null,
+password_harsh varchar(300) not null,
+role varchar(20) not null,
+created_at datetime default current_timestamp,
+updated_at datetime default current_timestamp on update current_timestamp,
+status varchar(20) default 'active')
+250603  1:54:04	     9 Query	alter table user_details add column created_by varchar(20) not null
+250603  1:54:55	     9 Query	alter table user_details add column deleted_by varchar(20) not null
+250603  1:55:45	     9 Query	alter table user_details add column updated_by varchar(20)not null
+250603  1:55:56	     9 Query	DESCRIBE user_details
+250603  1:59:56	     9 Query	alter table user_details
+modify column deleted_by varchar(20) not null default '-'
+250603  2:02:51	     9 Query	insert into user_details (username, password_hash, role, created_by)
+values('harsh', 'Harsh0@server', 'root', 'root')
+250603  2:04:55	     9 Query	alter table user_details
+change coulmn password_harsh password_hash varchar(300) not null
+250603  2:06:25	     9 Query	alter table user_details
+change coulmn password_harsh password_hash varchar(300) not null
+250603  2:08:00	     9 Query	alter table user_details
+change column password_harsh password_hash varchar(300) not null
+250603  2:08:11	     9 Query	describe user_details
+250603  2:10:31	     9 Query	insert into user_details
+('username', 'password_hash', 'role', 'craeted_by', 'updated_by')
+values ('harsh', 'Harsh0@server', 'root', 'root', 'root')
+250603  2:12:10	     9 Query	insert into user_details (username, password_hash, role, craeted_by, updated_by) values ('harsh', 'Harsh0@server', 'root', 'root', 'root')
+250603  2:12:19	     9 Query	insert into user_details (username, password_hash, role, created_by, updated_by) values ('harsh', 'Harsh0@server', 'root', 'root', 'root')
+250603  2:12:44	     9 Query	SELECT * FROM user_details
+250603  2:13:02	     9 Query	insert into user_details (username, password_hash, role, created_by, updated_by) values ('root', 'Harsh0@server', 'root', 'root', 'root')
+250603  2:13:18	     9 Query	SELECT * FROM user_details
+250603  2:14:05	     9 Query	DELETE FROM user_details
+WHERE username='harsh'
+250603  2:14:15	     9 Query	insert into user_details (username, password_hash, role, created_by, updated_by) values ('harsh', 'Harsh0@server', 'root', 'root', 'root')
+250603  2:14:20	     9 Query	SELECT * FROM user_details
+250603  2:29:47	     9 Query	revoke all privileges on mydbmanager_admin.* from 'harsh'@'localhost'
+250603  2:30:28	     9 Query	REVOKE ALL PRIVILEGES, GRANT OPTION ON *.* FROM 'harsh'@'localhost'
+250603  2:30:55	     9 Query	REVOKE ALL PRIVILEGES ON *.* FROM 'harsh'@'localhost'
+250603  2:31:00	     9 Query	REVOKE GRANT OPTION ON *.* FROM 'harsh'@'localhost'
+250603  2:31:39	     9 Query	GRANT ALL PRIVILEGES ON *.* TO 'harsh'@'localhost' WITH GRANT OPTION
+250603  2:31:43	     9 Query	REVOKE ALL PRIVILEGES ON mydbmanager_admin.* FROM 'harsh'@'localhost'
+250603  2:32:04	     9 Query	GRANT ALL PRIVILEGES ON *.* TO 'harsh'@'localhost' WITH GRANT OPTION
+		     9 Query	REVOKE ALL PRIVILEGES ON mydbmanager_admin.* FROM 'harsh'@'localhost'
+250603  2:35:24	     9 Query	REVOKE ALL PRIVILEGES, GRANT OPTION ON *.* FROM 'harsh'@'localhost'
+250603  2:35:35	     9 Query	REVOKE ALL PRIVILEGES ON *.* FROM 'harsh'@'localhost'
+250603  2:35:46	     9 Query	REVOKE ALL GRANT OPTION ON *.* FROM 'harsh'@'localhost'
+250603  2:35:53	     9 Query	REVOKE GRANT OPTION ON *.* FROM 'harsh'@'localhost'
+250603  2:40:17	     9 Query	create database mydbmanager_user
+250603  2:40:27	     9 Query	RENAME TABLE mydbmanager_admin.table_name TO mydbmanager_user.table_name
+250603  2:40:47	     9 Query	RENAME TABLE mydbmanager_admin.user_details TO mydbmanager_user.table_name
+250603  2:41:02	     9 Query	SELECT DATABASE()
+		     9 Init DB	mydbmanager_user
+		     9 Query	show databases
+		     9 Query	show tables
+		     9 Field List	table_name 
+		     9 Query	SHOW TABLES
+250603  2:41:06	     9 Query	SELECT DATABASE()
+		     9 Init DB	mydbmanager_user
+		     9 Query	SHOW TABLES
+250603  2:42:14	     9 Query	RENAME TABLE table_name TO user_details
+250603  2:42:20	     9 Query	show tables
+250603  2:42:31	     9 Query	select * from user_details
+250603  2:42:46	     9 Query	SELECT DATABASE()
+		     9 Init DB	mydbmanager_admin
+		     9 Query	show databases
+		     9 Query	show tables
+250603  2:43:22	     9 Query	DROP TABLE user_details
+250603  2:43:26	     9 Query	show tables
+250603  2:43:37	     9 Query	show tables
+250603  2:43:47	     9 Query	SELECT DATABASE()
+		     9 Init DB	mydbmanager_user
+		     9 Query	show databases
+		     9 Query	show tables
+		     9 Field List	user_details 
+250603  2:44:05	     9 Query	show tables
+250603  2:44:16	     9 Query	select * from user_details
+250603  2:45:07	     9 Query	delete from user_details where username = "harsh"
+250603  2:45:30	     9 Query	select user, host from mysql.user
+250603  2:45:56	     9 Query	create user 'app_user'@'localhost'
+250603  2:46:05	     9 Query	select * from mysql.user
+250603  2:46:13	     9 Query	select user, host from mysql.user
+250603  2:46:39	     9 Query	show grant for harsh
+250603  2:46:45	     9 Query	select user, host from mysql.user
+250603  2:46:54	     9 Query	show tables
+250603  2:47:05	     9 Query	select * from user_details
+250603  2:47:43	     9 Query	delete from user_details where name = "root"
+250603  2:47:56	     9 Query	delete from user_details where username = "root"
+250603  2:49:40	     9 Query	insert into user_details 
+(username, password_hash, role, created_by, updated_by)
+Value('root', 'Harsh0@server', 'root', 'root', 'root')
+250603  2:49:51	     9 Query	select * from user_details
+250603  2:50:13	     9 Query	select user from mysql.user
+250603  2:53:23	     9 Query	insert into user_details 
+(username, password_hash, role, created_by, updated_by)
+Value ('harsh', 'App0@server', 'super_admin', 'root', 'root')
+250603  2:57:14	     9 Query	drop table user_details
+250603  2:58:48	     9 Quit	
+250603  3:01:52	    10 Connect	root@localhost on  using Socket
+		    10 Query	select @@version_comment limit 1
+250603  3:02:17	    10 Query	select user from mysql.user
+250603  3:02:26	    10 Query	show databases
+250603  3:02:44	    10 Query	SELECT DATABASE()
+		    10 Init DB	mydbmanager_admin
+		    10 Query	show databases
+		    10 Query	show tables
+250603  3:02:47	    10 Query	show tables
+250603  3:02:54	    10 Query	SELECT DATABASE()
+		    10 Init DB	mydbmanager_user
+		    10 Query	show databases
+		    10 Query	show tables
+250603  3:02:58	    10 Query	show tables
+250603  3:07:27	    11 Connect	root@localhost on  using Socket
+		    11 Connect	Access denied for user 'root'@'localhost' (using password: YES)
+250603  3:07:32	    12 Connect	root@localhost on  using Socket
+		    12 Query	select @@version_comment limit 1
+250603  3:07:46	    12 Query	SELECT DATABASE()
+250603  3:08:00	    12 Query	show database
+250603  3:08:07	    12 Query	show databases
+250603  3:08:15	    12 Query	SELECT DATABASE()
+		    12 Init DB	mydbmanager_user
+		    12 Query	show databases
+		    12 Query	show tables
+250603  3:08:22	    12 Query	show tables
+250603  3:11:53	    12 Query	create table user_details (
+id int auto_increment primarykey,
+username varchar(50
+) not null unique,
+password_hash varchar(300) not null,
+role varchar(20) not null,
+created_at timestamp default current_timestamp,
+last_updated_at timestamp default current_timestamp on update current_timestamp,
+created_by varchar(50) not null,
+last_updated_by varchar(50) not null)
+250603  3:12:48	    12 Query	create table user_details (id int auto_increment primarykey, username varchar(50) not null unique, password_hash varchar(300) not null, role varchar(20) not null, created_at timestamp default current_timestamp, last_updated_at timestamp default current_timestamp on update current_timestamp, created_by varchar(50) not null, last_updated_by varchar(50) not null)
+250603  3:14:04	    12 Query	create table user_details (id int auto_increment primarykey, username varchar(50) not null unique, password_hash varchar(300) not null, role varchar(20) not null, created_at timestamp default current_timestamp, last_updated_at timestamp default current_timestamp on update current_timestamp, created_by varchar(50) not null, last_updated_by varchar(50) not null)
+250603  3:14:42	    12 Query	create table user_details (id int auto_increment primary key, username varchar(50) not null unique, password_hash varchar(300) not null, role varchar(20) not null, created_at timestamp default current_timestamp, last_updated_at timestamp default current_timestamp on update current_timestamp, created_by varchar(50) not null, last_updated_by varchar(50) not null)
+250603  3:14:52	    12 Query	show tables
+250603  3:15:05	    12 Query	describe user_details
+250603  3:16:46	    12 Query	drop table user_details
+250603  3:16:51	    12 Query	show tables
+250603  3:25:08	    12 Query	create table user_details ( id int auto_increment primary key, username varchar(20) unique not null, status varchar(20) default 'active', password_hash varchar(300) not null, role varchar(20) not null, created_at datetime default current_timestamp, last_updated_at datetime default current_timestamp on update current_timestamp,  created_by varchar(20) not null, last_updated_by varchar(20) not null, deleted_by varchar(20) default '-')
+250603  3:25:53	    12 Query	select user from mysql.user
+250603  4:18:20	    12 Query	select * from user_details
+250603  4:21:02	    12 Query	insert into user_details
+(username, password_hash, role, created_by, updated_by)
+values('root', 'Harsh0@server', 'root', 'root', 'root')
+250603  4:21:18	    12 Query	insert into user_details (username, password_hash, role, created_by, last_updated_by) values('root', 'Harsh0@server', 'root', 'root', 'root')
+250603  4:21:41	    12 Query	insert into user_details (username, password_hash, role, created_by, last_updated_by) values('app_user', 'Harsh0@server', 'root', 'root', 'root')
+250603  4:22:14	    12 Query	insert into user_details (username, password_hash, role, created_by, last_updated_by) values('harsh', 'Harsh0@server', 'Super Admin', 'root', 'root')
+250603  4:22:52	    12 Query	select id, username, role from user_details
+250603  4:24:56	    12 Query	update user_details
+set password_hash = 'app_user0@server'
+where username = 'app_user'
+250603  4:25:30	    12 Query	update user_details
+set password_hash =
+250603  4:26:06	    12 Query	select id, user, password_hash, role from user_details
+250603  4:26:13	    12 Query	select id, username, password_hash, role from user_details
+250603  4:26:26	    12 Quit	
