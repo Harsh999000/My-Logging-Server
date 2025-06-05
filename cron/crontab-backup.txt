@@ -7,7 +7,7 @@
 # Create empty logs after rotation at 12:02 AM
 2 0 * * * touch /db1/myserver/mariadb/logs/general.log /db1/myserver/mariadb/logs/error.log
 
-# Flush Logs so that mariadb closes and reopens the new file
+# Flush Logs so that mariadb closes and reopens the new file 12:03 AM
 # Mariadb db does not automatically reopen the new file and keep using old file handle
 3 0 * * * /db1/myserver/mariadb/bin/mysql -u root -pYourPasswordHere -S /db1/myserver/mariadb/mysql.sock -e "FLUSH LOGS;"
 
