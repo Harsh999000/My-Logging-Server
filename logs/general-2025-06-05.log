@@ -1,0 +1,125 @@
+/db1/myserver/mariadb/bin/mariadbd, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250605  7:24:45	    16 Query	show databases
+250605  7:25:25	    16 Query	flush logs
+/db1/myserver/mariadb/bin/mariadbd, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250605  7:25:33	    16 Query	show databases
+250605  7:25:48	    16 Query	select user, host from mysql.user
+250605  7:26:01	    16 Query	SELECT DATABASE()
+		    16 Init DB	mydbmanager_user
+		    16 Query	show databases
+		    16 Query	show tables
+		    16 Field List	user_details 
+250605  7:26:15	    16 Query	select * username from user_details
+250605  7:26:19	    16 Query	show tables
+250605  7:26:28	    16 Query	select username from user_details
+250605  8:56:11	    16 Query	show databases
+250605  9:19:24	    16 Query	show databases
+250605 11:32:48	    16 Quit	
+250605 11:52:25	    17 Connect	root@localhost on  using Socket
+		    17 Query	select @@version_comment limit 1
+250605 11:52:32	    17 Query	show databases
+250605 15:59:17	    17 Query	SELECT DATABASE()
+		    17 Init DB	mydbmanager_user
+		    17 Query	show databases
+		    17 Query	show tables
+		    17 Field List	user_details 
+250605 15:59:20	    17 Query	show tables
+250605 15:59:55	    17 Query	select username, password_hash from user_details where username = app_user
+250605 16:00:36	    17 Query	SELECT username, password_hash
+FROM user_details
+WHERE username = 'app_user'
+250605 16:01:18	    17 Query	set DB_URL=jdbc:mysql://192.168.0.184:3306
+set DB_USERNAME=app_user
+set DB_PASSWORD=app_user@server
+mvn spring-boot:run
+/db1/myserver/mariadb/bin/mariadbd, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250605 21:50:58	     3 Connect	root@localhost on  using Socket
+		     3 Query	SHOW VARIABLES LIKE 'pid_file'
+		     3 Shutdown	
+/db1/myserver/mariadb/bin/mariadbd, Version: 10.11.6-MariaDB-log (MariaDB Server). started with:
+Tcp port: 3306  Unix socket: /db1/myserver/mariadb/mysql.sock
+Time		    Id Command	Argument
+250605 21:52:26	     3 Connect	root@localhost on  using Socket
+		     3 Query	select @@version_comment limit 1
+250605 21:53:41	     3 Query	CREATE USER 'app_user'@'localhost' IDENTIFIED BY 'your_password'
+250605 21:53:42	     3 Query	GRANT ALL PRIVILEGES ON *.* TO 'app_user'@'localhost'
+		     3 Query	FLUSH PRIVILEGES
+250605 21:55:47	     3 Query	CREATE USER 'app_user'@'192.168.0.194' IDENTIFIED BY 'Harsh0@server'
+250605 21:55:53	     3 Query	GRANT ALL PRIVILEGES ON *.* TO 'app_user'@'192.168.0.194' WITH GRANT OPTION
+250605 21:56:08	     3 Query	FLUSH PRIVILEGES
+		     3 Query	select user, host from mysql.user
+250605 21:57:06	     3 Query	SHOW PROCESSLIST
+250605 21:59:01	     4 Connect	app_user@192.168.0.194 on  using TCP/IP
+250605 21:59:34	     3 Query	ALTER USER 'app_user'@'192.168.0.194' IDENTIFIED WITH mysql_native_password BY 'your_password'
+		     3 Query	FLUSH PRIVILEGES
+250605 21:59:39	     3 Query	ALTER USER 'app_user'@'192.168.0.194' IDENTIFIED WITH mysql_native_password BY 'your_password'
+		     3 Query	FLUSH PRIVILEGES
+250605 21:59:55	     3 Query	ALTER USER 'app_user'@'192.168.0.194' IDENTIFIED WITH mysql_native_password BY 'your_password'
+		     3 Query	FLUSH PRIVILEGES
+250605 22:00:07	     3 Query	ALTER USER 'app_user'@'192.168.0.194' IDENTIFIED WITH mysql_native_password BY 'Harsh0@server'
+		     3 Query	FLUSH PRIVILEGES
+250605 22:00:28	     3 Query	SET PASSWORD FOR 'app_user'@'192.168.0.194' = PASSWORD('Harsh0@server')
+250605 22:00:32	     3 Query	FLUSH PRIVILEGES
+250605 22:00:53	     5 Connect	app_user@192.168.0.194 on  using TCP/IP
+250605 22:02:11	     7 Connect	app_user@192.168.0.194 on  using TCP/IP
+		     7 Query	select @@version_comment limit 1
+250605 23:00:23	     8 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		     8 Query	SELECT @@tx_isolation
+		     8 Query	SELECT username, password_hash, role FROM mydbmanager_user.user_details WHERE username = 'root'
+		     9 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		    10 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		    11 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		    12 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		    13 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		    14 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		    15 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		    16 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		    17 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:29:40	    10 Quit	
+		    18 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:29:54	    17 Quit	
+		    19 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:29:57	    12 Quit	
+		    20 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:29:58	     9 Quit	
+		    21 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:30:04	    13 Quit	
+		    22 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:30:11	    15 Quit	
+		    23 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:30:13	    16 Quit	
+		    24 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+		     8 Quit	
+		    25 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:30:16	    11 Quit	
+		    26 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:30:20	    14 Quit	
+		    27 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:59:06	    18 Quit	
+		    28 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:59:34	    24 Quit	
+		    29 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:59:35	    19 Quit	
+		    30 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:59:36	    20 Quit	
+		    31 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:59:40	    26 Quit	
+		    32 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:59:42	    22 Quit	
+		    33 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250605 23:59:56	    21 Quit	
+		    34 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250606  0:00:06	    25 Quit	
+		    35 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250606  0:00:08	    27 Quit	
+		    36 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250606  0:00:11	    23 Quit	
+		    37 Connect	app_user@192.168.0.194 on mysql using TCP/IP
+250606  0:03:01	    38 Connect	root@localhost on  using Socket
+		    38 Query	FLUSH LOGS
